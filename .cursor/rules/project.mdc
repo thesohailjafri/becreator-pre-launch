@@ -1,0 +1,42 @@
+---
+alwaysApply: true
+globs: **/*
+---
+
+# Glass UI — Project Context
+
+This is a Next.js 16 component library built on top of shadcn/ui.
+We are building Apple-inspired glass morphism UI components.
+
+## Stack
+
+- Next.js 16 (App Router), TypeScript, React 19.2
+- Tailwind CSS for layout and spacing
+- shadcn/ui as the base component layer (lives in components/ui/)
+- CSS custom properties for all glass tokens
+- Radix UI data-state attributes for enter/exit animations — NO Framer Motion
+- Web Animations API for imperative exit animations when needed
+- Turbopack is the default bundler — do NOT add --turbopack flags, they are redundant
+
+## Next.js 16 Specifics
+
+- Turbopack is stable and default for both next dev and next build
+- middleware.ts has been renamed to proxy.ts — use proxy.ts for any network boundary logic
+- Route params and searchParams are now async — always await them
+- Caching is opt-in via the "use cache" directive — nothing is implicitly cached
+- React Compiler is available and stable but not enabled by default
+- Minimum Node.js version is 20.9.0
+- React 19.2 View Transitions are available natively — prefer these over JS animation
+  libraries for page-level transitions
+
+## Project Structure
+
+- components/ui/ → shadcn base components, DO NOT modify these
+- components/glass/ → our animated glass components, built on top of ui/
+- registry/ → JSON metadata for each component for the shadcn CLI
+- app/api/r/[name]/ → API route that serves registry JSON files to the shadcn CLI
+
+## Naming
+
+- Components are named Glass[ComponentName], e.g. GlassCard, GlassButton
+- Registry JSON files are kebab-case, e.g. glass-card.json
