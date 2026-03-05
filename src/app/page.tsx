@@ -1,4 +1,8 @@
+"use client"
+
+import * as React from "react"
 import { GlassButton } from "@/components/glass/glass-button"
+import { GlassSlider } from "@/components/glass/glass-slider"
 import {
   GlassCard,
   GlassCardHeader,
@@ -7,7 +11,6 @@ import {
   GlassCardContent,
   GlassCardFooter,
 } from "@/components/glass/glass-card"
-
 export default function Home() {
   return (
     <div className="relative min-h-[200vh] bg-[#0a0e1a] font-sans antialiased overflow-x-hidden">
@@ -39,10 +42,13 @@ function Content() {
         </header>
         <GlassButton>Default</GlassButton>
 
+        <div className="mx-auto mt-12 max-w-xs">
+          <GlassSlider defaultValue={[60]} max={100} step={1} />
+        </div>
+
         <div className="mx-auto mt-16 max-w-sm text-left">
           <GlassCard
             elastic
-            
             className="rounded-2xl"
           >
             <GlassCardHeader>
