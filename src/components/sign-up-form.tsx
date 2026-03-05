@@ -14,11 +14,14 @@ import {
 
 export function SignUpForm() {
   return (
-    <GlassCard elastic className="rounded-2xl">
+    <GlassCard
+      elastic
+      className="mx-auto w-full max-w-sm rounded-2xl text-left"
+    >
       <GlassCardHeader>
-        <GlassCardTitle>Create an account</GlassCardTitle>
+        <GlassCardTitle>Join the waitlist</GlassCardTitle>
         <GlassCardDescription>
-          Enter your details to get started
+          Enter your details to get early access
         </GlassCardDescription>
       </GlassCardHeader>
       <GlassCardContent className="space-y-4">
@@ -34,19 +37,14 @@ export function SignUpForm() {
           </label>
           <GlassInput id="email" type="email" placeholder="john@example.com" />
         </div>
-        <div className="space-y-1.5">
-          <label
-            htmlFor="password"
-            className="text-sm font-medium text-white/70"
-          >
-            Password
-          </label>
-          <GlassInput id="password" type="password" placeholder="••••••••" />
-        </div>
       </GlassCardContent>
       <GlassCardFooter>
-        <GlassButton className="w-full" variant="default">
-          Sign Up
+        <GlassButton
+          elasticOptions={{ resistance: 0.01 }}
+          className="w-full"
+          variant="primary"
+        >
+          Join Waitlist
         </GlassButton>
       </GlassCardFooter>
     </GlassCard>

@@ -15,7 +15,7 @@ import { GlassInput } from "@/components/glass/glass-input"
 import { SignUpForm } from "@/components/sign-up-form"
 export default function Home() {
   return (
-    <div className="relative min-h-[200vh] bg-[#0a0e1a] font-sans antialiased overflow-x-hidden">
+    <div className="relative min-h-screen bg-[#0a0e1a] font-sans antialiased overflow-x-hidden">
       <Content />
     </div>
   )
@@ -31,8 +31,8 @@ function Content() {
         <div className="absolute bottom-[100px] right-[20%] h-[300px] w-[300px] rounded-full bg-[radial-gradient(circle,#2f9e44,#2b8a3e)] opacity-55 blur-[80px]" />
       </div>
       {/* Centered container */}
-      <div className="relative z-10 mx-auto max-w-2xl px-6 py-24 text-center">
-        <header className="space-y-4">
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-2xl flex-col items-center justify-center px-6 text-center">
+        {/* <header className="space-y-4">
           <p className="text-xs font-semibold uppercase tracking-widest text-white/40">
             Glass UI · Design Systems
           </p>
@@ -84,13 +84,11 @@ function Content() {
               <span>5-day outlook</span>
             </GlassCardFooter>
           </GlassCard>
-        </div>
+        </div> */}
 
-        <div className="mx-auto mt-16 max-w-sm text-left">
-          <SignUpForm />
-        </div>
+        <SignUpForm />
 
-        <p className="mx-auto mt-10 max-w-lg text-base leading-relaxed text-white/60">
+        {/* <p className="mx-auto mt-10 max-w-lg text-base leading-relaxed text-white/60">
           Glass morphism distills interface design to its purest essence — light
           refracting through virtual matter, depth without weight, and
           translucency layered with intention.
@@ -177,7 +175,7 @@ function Content() {
           />
         </figure>
 
-        <div className="pb-20" />
+        <div className="pb-20" /> */}
       </div>
     </>
   )
