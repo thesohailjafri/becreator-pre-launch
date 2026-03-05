@@ -11,6 +11,8 @@ import {
   GlassCardContent,
   GlassCardFooter,
 } from "@/components/glass/glass-card"
+import { GlassInput } from "@/components/glass/glass-input"
+import { SignUpForm } from "@/components/sign-up-form"
 export default function Home() {
   return (
     <div className="relative min-h-[200vh] bg-[#0a0e1a] font-sans antialiased overflow-x-hidden">
@@ -41,16 +43,13 @@ function Content() {
           </h1>
         </header>
         <GlassButton>Default</GlassButton>
-
+        <GlassInput placeholder="Enter your name" />
         <div className="mx-auto mt-12 max-w-xs">
           <GlassSlider defaultValue={[60]} max={100} step={1} />
         </div>
 
         <div className="mx-auto mt-16 max-w-sm text-left">
-          <GlassCard
-            elastic
-            className="rounded-2xl"
-          >
+          <GlassCard elastic className="rounded-2xl">
             <GlassCardHeader>
               <GlassCardTitle>Weekly Forecast</GlassCardTitle>
               <GlassCardDescription>San Francisco, CA</GlassCardDescription>
@@ -85,6 +84,10 @@ function Content() {
               <span>5-day outlook</span>
             </GlassCardFooter>
           </GlassCard>
+        </div>
+
+        <div className="mx-auto mt-16 max-w-sm text-left">
+          <SignUpForm />
         </div>
 
         <p className="mx-auto mt-10 max-w-lg text-base leading-relaxed text-white/60">
