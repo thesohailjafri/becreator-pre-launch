@@ -70,9 +70,39 @@ export function WaitlistForm() {
     }
   }
 
-  const handleShare = () => {
-    navigator.clipboard.writeText('https://becreator.app')
-    toast.success('Link copied to clipboard 🥰')
+  const handleShare = async () => {
+    const shareData = {
+      title: 'BeCreator - Join the Waitlist',
+      text: 'Join me on the BeCreator waitlist and get lifetime free access! 🚀',
+      url: 'https://becreator.app',
+    }
+
+    try {
+      // Check if Web Share API is supported
+      if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
+        await navigator.share(shareData)
+        toast.success('Thanks for sharing! 🥰')
+      } else if (navigator.share) {
+        // Try sharing without canShare check (some browsers don't support canShare)
+        await navigator.share(shareData)
+        toast.success('Thanks for sharing! 🥰')
+      } else {
+        // Fallback to clipboard copy
+        await navigator.clipboard.writeText(shareData.url)
+        toast.success('Link copied to clipboard! 🥰')
+      }
+    } catch (error) {
+      // User cancelled or error occurred
+      if ((error as Error).name !== 'AbortError') {
+        // Fallback to clipboard if share fails
+        try {
+          await navigator.clipboard.writeText(shareData.url)
+          toast.success('Link copied to clipboard! 🥰')
+        } catch {
+          toast.error('Failed to share. Please copy the link manually.')
+        }
+      }
+    }
   }
 
   if (isSubmitted) {
@@ -134,6 +164,18 @@ export function WaitlistForm() {
             elastic={false}
             className="w-full"
             variant="ghost"
+          >
+            Share with Friends 🔗
+          </GlassButton>
+          <GlassButton
+            type="button"
+            onClick={() => {
+              setIsSubmitted(false)
+              setFormData({ name: '', email: '', message: '' })
+            }}
+            elastic={false}
+            className="w-full"
+            variant="outline"
           >
             Join Another Person
           </GlassButton>
