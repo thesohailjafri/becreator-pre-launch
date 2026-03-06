@@ -1,6 +1,38 @@
-'use client'
-
 import { WaitlistForm } from '@/components/waitlist-form'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'BeCreator - Join the Waitlist',
+  description: 'Get early access to BeCreator - The ultimate creator platform',
+  openGraph: {
+    title: 'BeCreator - Join the Waitlist',
+    description:
+      'Get early access to BeCreator - The ultimate creator platform',
+    images: ['/logo.png'],
+  },
+  twitter: {
+    title: 'BeCreator - Join the Waitlist',
+    description:
+      'Get early access to BeCreator - The ultimate creator platform',
+    images: ['/logo.png'],
+  },
+  keywords: [
+    'BeCreator',
+    'Waitlist',
+    'Creator Platform',
+    'Creator Tools',
+    'Creator Economy',
+    'Creator Tools',
+  ],
+  authors: [{ name: 'Sohail', url: 'https://thesohailjafri.me' }],
+  creator: 'Sohail',
+  publisher: 'Sohail',
+  robots: 'index, follow',
+  alternates: {
+    canonical: 'https://becreator.app',
+  },
+}
+
 export default function Home() {
   return (
     <div className="relative min-h-screen bg-[#0a0e1a] font-sans antialiased overflow-x-hidden">
